@@ -1,0 +1,11 @@
+{
+  "slug": "release-gate",
+  "title": "Evaluation release gate",
+  "description": "Apply fail-closed thresholds and minimum sample counts to supplied evaluation metrics, with explicit pass, policy-block and invalid-input exit codes.",
+  "category": "evaluation",
+  "demo_args": [
+    "--input",
+    "example.json"
+  ],
+  "expected_exit": 0
+}
