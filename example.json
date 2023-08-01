@@ -1,0 +1,1 @@
+{"samples":250,"minimum_samples":200,"metrics":{"grounded_answer_rate":0.91,"p95_latency_ms":880,"unsafe_answer_rate":0.01},"rules":[{"name":"answer-quality","metric":"grounded_answer_rate","op":"gte","value":0.9},{"name":"latency-budget","metric":"p95_latency_ms","op":"lte","value":1000},{"name":"unsafe-output-budget","metric":"unsafe_answer_rate","op":"lte","value":0.02}]}
