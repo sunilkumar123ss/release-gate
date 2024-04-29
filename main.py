@@ -53,3 +53,24 @@ def evaluate(metrics, samples, minimum_samples, rules):
                         "observed": observed, "op": operator, "required": threshold})
     return {"decision": "pass" if all(row["passed"] for row in results) else "block", "checks": results}
 
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input", required=True)
+    args = parser.parse_args()
+    try:
+        input_path = Path(args.input)
+        if not input_path.is_absolute():
+            input_path = Path(__file__).resolve().parent / input_path
+        with input_path.open(encoding="utf-8") as handle:
+            data = json.load(handle)
+        result = evaluate(data["metrics"], data["samples"], data["minimum_samples"], data["rules"])
+        print(json.dumps(result, indent=2, allow_nan=False))
+        return 0 if result["decision"] == "pass" else 1
+    except (ValueError, KeyError, TypeError, OSError) as error:
+        print(f"Invalid gate policy or metrics: {error}", file=sys.stderr)
+        return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main())
