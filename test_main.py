@@ -9,3 +9,9 @@ class GateTests(unittest.TestCase):
     def test_exact_boundaries_pass(self):
         self.assertEqual(evaluate({"f1": 0.8, "p95_ms": 300}, 100, 100, RULES)["decision"], "pass")
 
+    def test_missing_metric_and_insufficient_samples_block(self):
+        result = evaluate({"f1": 0.9}, 99, 100, RULES)
+        self.assertEqual(result["decision"], "block")
+        self.assertEqual(result["checks"][-1]["reason"], "missing_metric")
+        self.assertFalse(result["checks"][0]["passed"])
+

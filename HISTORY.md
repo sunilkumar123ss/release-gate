@@ -4,7 +4,7 @@ This reference implementation and all of the following milestone commits were pr
 
 **Every recorded author and committer date in this timeline is synthetic. These dates are not evidence that the code was written, tested, deployed, or used professionally in the past.**
 
-This snapshot is milestone 6 of 12. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
+This snapshot is milestone 7 of 12. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
 
 The progression decomposes already-completed October 2026 code into meaningful additions. It is not recovered original development history. Publication time is separate from the synthetic Git timestamps.
 
@@ -18,7 +18,7 @@ The progression decomposes already-completed October 2026 code into meaningful a
 | 4 | 2024-04-25T18:00:46+05:30 | Implement evaluate (present) |
 | 5 | 2024-04-29T16:25:48+05:30 | Expose the command-line demonstration and input handling (present) |
 | 6 | 2024-10-22T09:40:06+05:30 | Test exact boundaries pass (present) |
-| 7 | 2025-08-08T19:35:17+05:30 | Test missing metric and insufficient samples block (later stage) |
+| 7 | 2025-08-08T19:35:17+05:30 | Test missing metric and insufficient samples block (present) |
 | 8 | 2025-09-27T13:55:00+05:30 | Test between and threshold failure (later stage) |
 | 9 | 2026-02-09T19:06:18+05:30 | Test invalid policy and nan (later stage) |
 | 10 | 2026-07-12T15:56:28+05:30 | Add one-command test, demonstration and CLI verification (later stage) |
