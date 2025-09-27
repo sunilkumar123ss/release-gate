@@ -15,3 +15,7 @@ class GateTests(unittest.TestCase):
         self.assertEqual(result["checks"][-1]["reason"], "missing_metric")
         self.assertFalse(result["checks"][0]["passed"])
 
+    def test_between_and_threshold_failure(self):
+        rule = [{"name": "coverage", "metric": "rate", "op": "between", "value": [0.1, 0.9]}]
+        self.assertEqual(evaluate({"rate": 1}, 10, 1, rule)["decision"], "block")
+
