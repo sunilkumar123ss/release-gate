@@ -19,3 +19,14 @@ class GateTests(unittest.TestCase):
         rule = [{"name": "coverage", "metric": "rate", "op": "between", "value": [0.1, 0.9]}]
         self.assertEqual(evaluate({"rate": 1}, 10, 1, rule)["decision"], "block")
 
+    def test_invalid_policy_and_nan(self):
+        with self.assertRaises(ValueError):
+            evaluate({"f1": float("nan")}, 100, 100, RULES)
+        with self.assertRaises(ValueError):
+            evaluate({}, 100, 100, [{"name": "bad", "metric": "x", "op": "between", "value": [2, 1]}])
+        with self.assertRaises(ValueError):
+            evaluate({}, 100, 100, [])
+
+
+if __name__ == "__main__":
+    unittest.main()
